@@ -1,3 +1,8 @@
+### Imports ###
+
+from time import time
+
+
 ### Global definitions ###
 
 # size of row/col/group
@@ -119,8 +124,12 @@ def solve_sudoku(grid):
 ### Main program runtime ###
 
 if __name__ == "__main__":
-    if (solve_sudoku(grid)):
-        print("Solution found:")
+    start_time = time()
+    solved = solve_sudoku(grid)
+    runtime = time() - start_time
+
+    if solved:
+        print(f"Solution found in {round(runtime * 1000)} milliseconds:")
         display_sudoku(grid)
     else:
-        print("Solution does not exist")
+        print(f"Determined that no solution exists in {round(runtime * 1000)} milliseconds")
